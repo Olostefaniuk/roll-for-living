@@ -1,0 +1,29 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "airbnb-base"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "quotes": ["warn", "single"], //reguła o cudzysłowie - było w materiale
+        "import/prefer-default-export": "off", //dodałem, by nie wywalało błędu o importach
+        "no-console": "off", //dodałem to by nie wywalało błędu o używaniu console.log
+        "import/extensions": [ //to dodane jest, by nie wyrzucało przy importach plików z rozszerzeniem .js
+            "error",
+            {
+                "js": "ignorePackages"
+            }
+        ]
+
+    }
+}
