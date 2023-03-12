@@ -4,7 +4,7 @@ export const crawlerRouter = Router();
 
 crawlerRouter
   .get('/add-form', (req, res) => {
-    res.send('tu formularz do dodnia wojownika');
+    res.render('crawler/add-form');
   })
   .post('/', (req, res) => {
     res.send('dodaj postac');
