@@ -7,5 +7,5 @@ crawlerRouter
     res.render('crawler/add-form');
   })
   .post('/', (req, res) => {
-    res.send('dodaj postac');
+    res.render('crawler/crawler-added');
   });

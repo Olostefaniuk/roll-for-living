@@ -9,4 +9,4 @@ dungeonRouter
   .get('/:room', (req, res) => {
     const { room } = req.params;
     res.render(`dungeon/${room}`);
-  });
+  }); // to powinien byc patch, ponadto to bedzie jeszcze /:id jak juz wpadne na to, jak to wyciagac i przekazywac dalej
