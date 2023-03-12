@@ -7,6 +7,7 @@ import { homeRouter } from './routes/home';
 import { crawlerRouter } from './routes/crawler';
 import { dungeonRouter } from './routes/dungeon';
 import { survivorsRouter } from './routes/survivors';
+import {CrawlerRecord} from "./records/crawler.record";
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/crawler', crawlerRouter);
 app.use('/dungeon', dungeonRouter);
 app.use('/survivors', survivorsRouter);
 // app.use(handleError)
+
 
 app.listen(3000, 'localhost', () => {
   console.log('listening on port 3000');
