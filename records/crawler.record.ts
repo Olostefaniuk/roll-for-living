@@ -123,13 +123,20 @@ export class CrawlerRecord {
     return result.length === 0 ? null : new CrawlerRecord(result[0]);
   }
 
-  static async listAll(): Promise<CrawlerRecord[] | null> {
-    const [result] = await pool.execute('SELECT * FROM `crawlers`') as CrawlerRecordResult;
+  static async listAllInside(): Promise<CrawlerRecord[] | null> {
+    const [result] = await pool.execute('SELECT * FROM `crawlers` WHERE `roomcounter` != 99 AND `hp` > 0') as CrawlerRecordResult;
     return result;
   }
 
   static async listSurvivors(): Promise<CrawlerRecord[] | null> {
-    const [result] = await pool.execute('SELECT * FROM `crawlers` WHERE `roomCounter` = 99') as CrawlerRecordResult;
+    const [result] = await pool.execute('SELECT * FROM `crawlers` WHERE `roomCounter` = 99 AND `hp` > 0') as CrawlerRecordResult;
     return result.map((obj) => new CrawlerRecord(obj));
+  }
+
+  static async isNameTaken(name:string): Promise<boolean> {
+    const [result] = await pool.execute('SELECT * FROM `crawlers` WHERE `name` = :name', {
+      name,
+    }) as CrawlerRecordResult;
+    return result.length > 0;
   }
 }

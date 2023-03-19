@@ -1,4 +1,33 @@
 <h2>Create Your dugeon-crawler. Ty to make him well, otherwise there won't be much crawling.</h2>
 <h3>Distribute 14 poinst amongst stats. Each stat has to have max 5 points</h3>
 
-<form action=""></form>
+<form action="/crawler" method="post">
+
+<label>
+    Name: <br>
+    <input type="text" name="name" minlength="2" maxlength="19"> <br>
+</label>
+
+<label>
+    Strength: <br>
+    <input type="number" name="strength" value="1" max="5" min="1">
+</label>
+
+<label>
+    Speed: <br>
+    <input type="number" name="speed" value="1" max="5" min="1">
+</label>
+
+<label>
+    Stamina: <br>
+    <input type="number" name="stamina" value="1" max="5" min="1">
+</label>
+
+<label>
+    Intelligence: <br>
+    <input type="number" name="intelligence" value="1" max="5" min="1">
+</label>
+
+<button type="submit">save</button>
+
+</form>
