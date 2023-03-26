@@ -117,7 +117,7 @@ export class CrawlerRecord {
   }
 
   static async getOne(id:string): Promise<CrawlerRecord | null> {
-    const [result] = await pool.execute('SELECT * WHERE `id` = :id', {
+    const [result] = await pool.execute('SELECT * FROM `crawlers` WHERE `id` = :id', {
       id,
     }) as CrawlerRecordResult;
     return result.length === 0 ? null : new CrawlerRecord(result[0]);
