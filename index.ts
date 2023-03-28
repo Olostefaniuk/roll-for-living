@@ -9,6 +9,7 @@ import { dungeonRouter } from './routes/dungeon';
 import { survivorsRouter } from './routes/survivors';
 import './utils/db';
 import { CrawlerRecord } from './records/crawler.record';
+import { handleError } from './utils/errors';
 
 const app = express();
 
@@ -27,9 +28,7 @@ app.use('/', homeRouter);
 app.use('/crawler', crawlerRouter);
 app.use('/dungeon', dungeonRouter);
 app.use('/survivors', survivorsRouter);
-// app.use(handleError)
-
-
+app.use(handleError);
 
 app.listen(3000, 'localhost', () => {
   console.log('listening on port 3000');

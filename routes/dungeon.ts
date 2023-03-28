@@ -13,6 +13,7 @@ dungeonRouter
       id: req.body.id,
     });
   })
+// notatka do wejscia do pokoju 1
   .get('/room/1/:id', async (req, res) => {
     const { id } = req.params;
     const c = await CrawlerRecord.getOne(id);
