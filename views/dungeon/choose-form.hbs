@@ -1,2 +1,12 @@
 <h2>Who will continue ?</h2>
-<p>tu bedzie link do pokoju x przekazujac id, nastepnie router ktory bedzie renderowal hbs na podstawie pokoju wyciagnietego z hbs</p>
+<p>tu bedzie link do pokoju x przekazujac id w req.body, nastepnie router ktory bedzie renderowal hbs na podstawie pokoju wyciagnietego z hbs
+    </p>
+
+<form action="/dungeon/roomx" method="post">
+
+    {{>crawler-select select-name='id'}}
+    <br>
+    <button type="submit">enter dungeon</button>
+
+
+</form>

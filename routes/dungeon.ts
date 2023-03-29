@@ -5,8 +5,24 @@ import { CrawlerRecord } from '../records/crawler.record';
 export const dungeonRouter = Router();
 
 dungeonRouter
-  .get('/choose-form', (req, res) => {
-    res.render('dungeon/choose-form');
+// @todo dlaczego nie przekazuje sie id przez liste?
+  .get('/choose-form', async (req, res) => {
+    const crawlers = await CrawlerRecord.listAllInside();
+    res.render('dungeon/choose-form', {
+      crawlers,
+    });
+  })
+  .post('/roomx', async (req, res) => {
+    const { id } = req.body;
+    console.log(id);
+
+    const crawler = await CrawlerRecord.getOne(id);
+    console.log(crawler);
+    const room = crawler.roomCounter;
+    res.render('dungeon/rooms/roomx', {
+      room,
+      id,
+    });
   })
   .get('/room/0/:id', (req, res) => {
     res.render('dungeon/rooms/0', {
