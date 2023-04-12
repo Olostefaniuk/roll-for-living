@@ -10,11 +10,11 @@ Co jest potrzebne, żeby uruchomić grę?
 baza danych- crawler
 tabela: crawlers
 
-id(primary) - varchar - 36 
-<br>
-name(unique) - varchar - 20
+nazwa-typ danych- dlugosc
 
-strength - tinyint - 1
+id(primary) - varchar - 36 DOMYSLNIE uuid
+
+name(unique) - varchar - 20
 
 strength - tinyint - 1
 
@@ -24,7 +24,7 @@ stamina - tinyint - 1
 
 intelligence - tinyint - 1
 
-hp - tinyint - 1
+hp - tinyint - 1 DOMYSLNIE 10
 
-roomCounter - tinyint - 2
+roomCounter - tinyint - 2 DOMYSLNIE 0
 
