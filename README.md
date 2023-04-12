@@ -24,5 +24,7 @@ stamina - tinyint - 1
 
 intelligence - tinyint - 1
 
+hp - tinyint - 1
+
 roomCounter - tinyint - 2
 
