@@ -11,10 +11,18 @@ baza danych- crawler
 tabela: crawlers
 
 id(primary) - varchar - 36 
+<br>
 name(unique) - varchar - 20
+
 strength - tinyint - 1
+
 strength - tinyint - 1
+
 speed - tinyint - 1
+
 stamina - tinyint - 1
+
 intelligence - tinyint - 1
+
 roomCounter - tinyint - 2
+
