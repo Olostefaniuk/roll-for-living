@@ -3,9 +3,9 @@ import { CrawlerRecord } from '../records/crawler.record';
 // kazdy link do pokoju bedzie renderowal w zaleznosci od sukcesu albo porazki inny hbs, ktory bedzie mial inne przejscia
 // kazdy render dostanie przekazane id po to, zeby mogl nastepnie przekazac go w liku
 export const dungeonRouter = Router();
-
+//@TODO zrobić routeer do roomd na smierc i 99 na wyjscie
 dungeonRouter
-// @todo dlaczego nie przekazuje sie id przez liste?
+
   .get('/choose-form', async (req, res) => {
     const crawlers = await CrawlerRecord.listAllInside();
     res.render('dungeon/choose-form', {
@@ -29,19 +29,40 @@ dungeonRouter
       id: req.body.id,
     });
   })
-// notatka do wejscia do pokoju 1
+// wejscie do pokoju 1- test na szybkość i kierowanie na tej podstawie hbs 1s albo 1f,
   .get('/room/1/:id', async (req, res) => {
     const { id } = req.params;
     const c = await CrawlerRecord.getOne(id);
-    c.id = id;
+    c.id = id; // tego prawdopodobnie juz nie potrzebuję, odkąd poprawilem opisy w bazie danych
+    c.roomCounter = 1;
+    await c.updateRoom();
     const speedRoll = await c.speedTest();
 
     if (speedRoll) {
       await res.render('dungeon/rooms/1/1s', { id });
     } else {
-      c.hp -= 1;
+      c.hp -= 2;
       console.log(c);
       await c.updateHp();
       await res.render('dungeon/rooms/1/1f', { id });
+    }
+  })
+// wejcie do pokoju 2- test na siłę i kierowanie do 2s albo 2f
+  .get('/room/2/:id', async (req, res) => {
+    const { id } = req.params;
+    const c = await CrawlerRecord.getOne(id);
+    c.id = id;
+    c.roomCounter = 2;
+    await c.updateRoom();
+    const strRoll = await c.strengthTest();
+
+    if (strRoll) {
+      c.hp -= 1;
+      await c.updateHp;
+      await res.render('/dungeon/rooms/2/2s', { id });
+    } else {
+      c.hp -= 3;
+      await c.updateHp;
+      await res.render('/dungeon/rooms/2/2f');
     }
   });

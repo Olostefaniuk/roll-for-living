@@ -128,7 +128,7 @@ export class CrawlerRecord {
     return result;
   }
 
-  static async listSurvivors(): Promise<CrawlerRecord[] | null> {
+  static async listSurvivors(): Promise<CrawlerRecord[]> {
     const [result] = await pool.execute('SELECT * FROM `crawlers` WHERE `roomCounter` = 99 AND `hp` > 0') as CrawlerRecordResult;
     return result.map((obj) => new CrawlerRecord(obj));
   }
