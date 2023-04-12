@@ -2,7 +2,7 @@
 
 Appka zaliczeniowa: zarys gry/ książki paragrafowej. 
 
-Co już jest? Działający backend. Testy na statystyki, rzuty kością, wszystko funkcjinuje.
+Co już jest? Działający backend. Testy na statystyki, rzuty kością, wszystko funkcjonuje.
 
 Czego jeszcze nie ma? Frontu i treści. To jest ledwie zarys tego, jak ten projekt będzie wyglądał w przyszłości. Każdy pokój będzie przetłumaczony, narazie jest tylko szkic fabuły
 
